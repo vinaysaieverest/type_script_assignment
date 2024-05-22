@@ -14,7 +14,7 @@ type Address={
 let vinaysai: Student = {
     name: "vinay sai",
     age: 20,
-    email: "vinay@example.com",
+    email: "vinaysaichelpuri.com",
     course_list: "typescript",
     address: {             
         city: "Warangal",
@@ -23,10 +23,10 @@ let vinaysai: Student = {
     }
 };
 
-let rekha: Student={
-    name: "Rekha",
+let padmavathi: Student={
+    name: "Padmavathi",
     age: 20,
-    email: "rekha@gmail.com",
+    email: "padmavathi@gmail.com",
     course_list: "javascript",
     address: {             
         city: "karimnagar",
@@ -35,4 +35,4 @@ let rekha: Student={
     }
 }
 console.log(vinaysai)
-console.log(rekha)
+console.log(padmavathi)

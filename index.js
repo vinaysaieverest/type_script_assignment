@@ -2,18 +2,18 @@ console.log("Hello Panda");
 var vinaysai = {
     name: "vinay sai",
     age: 20,
-    email: "vinay@example.com",
-    course_list: "javascript",
+    email: "vinaysaichelpuri.com",
+    course_list: "typescript",
     address: {
         city: "Warangal",
         state: "Telangana",
         pincode: 506002
     }
 };
-var rekha = {
-    name: "Rekha",
+var padmavathi = {
+    name: "Padmavathi",
     age: 20,
-    email: "rekha@gmail.com",
+    email: "padmavathi@gmail.com",
     course_list: "javascript",
     address: {
         city: "karimnagar",
@@ -22,4 +22,4 @@ var rekha = {
     }
 };
 console.log(vinaysai);
-console.log(rekha);
+console.log(padmavathi);
