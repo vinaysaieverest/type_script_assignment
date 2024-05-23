@@ -50,3 +50,4 @@ const student2: ReadonlyStudent = {
 };
 
 //student2.name = "anjani"; here when we are trying change it shows error
+
