@@ -104,7 +104,8 @@ var StudentRequired = {
     name: "vinaysai",
     id: 2612,
     email: "chelpurivinaysai02@gmail.com",
-    address: { city: "warangal",
+    address: {
+        city: "warangal",
         state: "Telangana",
         pincode: 506002,
     }
@@ -133,9 +134,17 @@ var studentDetails2 = {
 };
 function detail2(student) {
     var result = '';
-    for (var key in studentDetails2) {
-        var studentKey = key;
-        result += "".concat(studentKey, ": ").concat(student[studentKey], ", ");
+    for (var key in student) {
+        if (key === 'address') {
+            for (var addressKey in student.address) {
+                var fullAddressKey = addressKey;
+                result += "".concat(addressKey, ": ").concat(student.address[fullAddressKey], ", ");
+            }
+        }
+        else {
+            var studentKey = key;
+            result += "".concat(studentKey, ": ").concat(student[studentKey], ", ");
+        }
     }
     console.log(result);
 }
