@@ -25,4 +25,78 @@ var student2 = {
     age: 20,
     grade: "A"
 };
-console.log(student2);
+var newstudent = {
+    name: "vinaysai",
+    age: 22,
+    place: "warangal",
+    class: 10,
+};
+var updatevalues = {
+    name: "Vijay",
+    age: 25,
+};
+function updatestudentNameAndEmail(newstudent, updatevalues) {
+    for (var key in updatevalues) {
+        newstudent[key] = updatevalues[key];
+    }
+    console.log(newstudent);
+}
+updatestudentNameAndEmail(newstudent, updatevalues);
+function checkIfString(value) {
+    if (typeof value === "string") {
+        return "Yes";
+    }
+    else {
+        return "No";
+    }
+}
+var a = checkIfString("hello");
+var b = checkIfString(99);
+console.log(a);
+console.log(b);
+var person1 = {
+    name: "vinaysai",
+    id: 1,
+    age: 20,
+};
+var person2 = {
+    name: "vinaysai1",
+    id: 2,
+    age: 21,
+    position: person1
+};
+var person3 = {
+    name: "vinaysai2",
+    id: 3,
+    age: 21,
+    position: person2
+};
+var allEmployee = [person1, person2, person3];
+console.log(allEmployee);
+//task 4 
+var leadArray = new Array;
+allEmployee.forEach(function (employee) {
+    if (employee.position) {
+        leadArray.push(employee.position.id);
+    }
+});
+var printLeads = function (allEmployees) {
+    function checkLead(employee) {
+        var islead = false;
+        leadArray.forEach(function (id) {
+            if (id === employee.id) {
+                islead = true;
+            }
+        });
+        return islead;
+    }
+    allEmployees.forEach(function (employee) {
+        if (checkLead(employee) == true) {
+            console.log("".concat(employee.name, " is Lead"));
+        }
+        else {
+            console.log("".concat(employee.name, " is not Lead"));
+        }
+    });
+};
+printLeads(allEmployee);
