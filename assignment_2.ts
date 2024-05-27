@@ -167,3 +167,90 @@ const printLeads = (allEmployees : employee[]) : void  => {
 }
 
 printLeads(allEmployee);
+
+
+//Assignment 5 
+// Task 1
+
+type Address ={
+    city : string,
+    state : string,
+    pincode : number
+}
+type optionalStudent = {
+    name : string,
+    id : number,
+    email : string,
+    address? :Address
+}
+ 
+type requiredThings = {
+    [property in keyof optionalStudent]-? :optionalStudent[property]
+}
+const StudentRequired :requiredThings = {
+    name : "vinaysai",
+    id :2612,
+    email : "chelpurivinaysai02@gmail.com",
+    address : {city:"warangal",
+        state :"Telangana",
+        pincode : 506002,
+    }
+}
+console.log(StudentRequired)
+
+
+//Task 2
+type optionalStudent1 ={
+    name :string,
+    email : string,
+}
+const studentDetails : optionalStudent1={
+    name : "Vinay Sai",
+    email : "chelpurivinaysai02@gmail.com"
+}
+
+function printByConcatenating(student: optionalStudent1) {
+    let result ='';
+    for (const key in studentDetails) {
+        const studentKey = key as keyof optionalStudent1;
+        result += `${studentKey}: ${student[studentKey]}, `;
+    }
+    
+    console.log(result)
+  }
+  
+
+printByConcatenating(studentDetails)
+
+//Task 3 
+
+type optionalStudent2 ={
+    name :string,
+    email : string,
+    address : Address1,
+}
+type Address1 = {
+    area : string,
+    state : string,
+}
+const studentDetails2 : optionalStudent2={
+    name : "Vinay Sai",
+    email : "chelpurivinaysai02@gmail.com",
+    address :{
+        area : "warangal",
+        state : "state"
+    }
+}
+
+function detail2(student: optionalStudent2) {
+    let result ='';
+    for (const key in studentDetails2) {
+        if(ke){
+
+        }
+    
+    console.log(result)
+  }
+  
+
+detail2(studentDetails2)

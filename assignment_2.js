@@ -100,3 +100,43 @@ var printLeads = function (allEmployees) {
     });
 };
 printLeads(allEmployee);
+var StudentRequired = {
+    name: "vinaysai",
+    id: 2612,
+    email: "chelpurivinaysai02@gmail.com",
+    address: { city: "warangal",
+        state: "Telangana",
+        pincode: 506002,
+    }
+};
+console.log(StudentRequired);
+var studentDetails = {
+    name: "Vinay Sai",
+    email: "chelpurivinaysai02@gmail.com"
+};
+function printByConcatenating(student) {
+    var result = '';
+    for (var key in studentDetails) {
+        var studentKey = key;
+        result += "".concat(studentKey, ": ").concat(student[studentKey], ", ");
+    }
+    console.log(result);
+}
+printByConcatenating(studentDetails);
+var studentDetails2 = {
+    name: "Vinay Sai",
+    email: "chelpurivinaysai02@gmail.com",
+    address: {
+        area: "warangal",
+        state: "state"
+    }
+};
+function detail2(student) {
+    var result = '';
+    for (var key in studentDetails2) {
+        var studentKey = key;
+        result += "".concat(studentKey, ": ").concat(student[studentKey], ", ");
+    }
+    console.log(result);
+}
+detail2(studentDetails2);
