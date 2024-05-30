@@ -1,4 +1,15 @@
 "use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var Class = /** @class */ (function () {
     function Class(name, branch, year) {
@@ -7,7 +18,9 @@ var Class = /** @class */ (function () {
         this.year = year;
     }
     Class.prototype.displayDetails = function () {
-        console.log(student);
+        console.log("Name: ", this.name);
+        console.log("Branch: ", this.branch);
+        console.log("Year: ", this.year);
     };
     return Class;
 }());
@@ -36,12 +49,10 @@ var updatevalues = {
     age: 25,
 };
 function updatestudentNameAndEmail(newstudent, updatevalues) {
-    for (var key in updatevalues) {
-        newstudent[key] = updatevalues[key];
-    }
-    console.log(newstudent);
+    return __assign(__assign({}, newstudent), updatevalues);
 }
-updatestudentNameAndEmail(newstudent, updatevalues);
+newstudent = updatestudentNameAndEmail(newstudent, updatevalues);
+console.log(newstudent);
 function checkIfString(value) {
     if (typeof value === "string") {
         return "Yes";
@@ -74,24 +85,36 @@ var person3 = {
 var allEmployee = [person1, person2, person3];
 console.log(allEmployee);
 //task 4 
-var leadArray = new Array;
-allEmployee.forEach(function (employee) {
-    if (employee.position) {
-        leadArray.push(employee.position.id);
-    }
-});
+// const leadArray = new Array<number>;
+// allEmployee.forEach(employee => {
+//     if (employee.position) {
+//         leadArray.push(employee.position.id);
+//     }
+// })
+// const printLeads = (allEmployees: employee[]): void => {
+//     function checkLead(employee: employee): boolean {
+//         let islead = false;
+//         leadArray.forEach(id => {
+//             if (id === employee.id) {
+//                 islead = true
+//             }
+//         });
+//         return islead;
+//     }
+//     allEmployees.forEach(employee => {
+//         if (checkLead(employee) == true) {
+//             console.log(`${employee.name} is Lead`);
+//         }
+//         else {
+//             console.log(`${employee.name} is not Lead`);
+//         }
+//     })
+// }
+// printLeads(allEmployee);
 var printLeads = function (allEmployees) {
-    function checkLead(employee) {
-        var islead = false;
-        leadArray.forEach(function (id) {
-            if (id === employee.id) {
-                islead = true;
-            }
-        });
-        return islead;
-    }
     allEmployees.forEach(function (employee) {
-        if (checkLead(employee) == true) {
+        var isLead = allEmployees.some(function (e) { var _a; return ((_a = e.position) === null || _a === void 0 ? void 0 : _a.name) === employee.name; });
+        if (isLead) {
             console.log("".concat(employee.name, " is Lead"));
         }
         else {
@@ -129,23 +152,21 @@ var studentDetails2 = {
     email: "chelpurivinaysai02@gmail.com",
     address: {
         area: "warangal",
-        state: "state"
+        state: "Telangana"
     }
 };
-function detail2(student) {
+function detail2(obj) {
     var result = '';
-    for (var key in student) {
-        if (key === 'address') {
-            for (var addressKey in student.address) {
-                var fullAddressKey = addressKey;
-                result += "".concat(addressKey, ": ").concat(student.address[fullAddressKey], ", ");
-            }
+    for (var key in obj) {
+        var value = obj[key];
+        if (typeof value === 'object') {
+            result += detail2(value);
         }
         else {
-            var studentKey = key;
-            result += "".concat(studentKey, ": ").concat(student[studentKey], ", ");
+            result += "".concat(key, ": ").concat(value, ", ");
         }
     }
-    console.log(result);
+    return result;
 }
-detail2(studentDetails2);
+var finalOutput = detail2(studentDetails2);
+console.log(finalOutput.slice(0, -2));
